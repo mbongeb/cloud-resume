@@ -1,0 +1,1421 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>John Smith - Cloud Native Engineer Portfolio</title>
+        <style>
+            /* Global Styles */
+            :root {
+                --primary-color: #0078d7;
+                --secondary-color: #2b5797;
+                --accent-color: #00b7c3;
+                --dark-color: #333;
+                --light-color: #f4f4f4;
+                --white-color: #fff;
+                --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                --transition: all 0.3s ease;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: var(--dark-color);
+                background-color: var(--light-color);
+                scroll-behavior: smooth;
+            }
+
+            a {
+                text-decoration: none;
+                color: var(--primary-color);
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 1.5rem;
+            }
+
+            .btn {
+                display: inline-block;
+                padding: 0.8rem 2rem;
+                background: var(--primary-color);
+                color: var(--white-color);
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: var(--transition);
+                font-weight: 600;
+            }
+
+            .btn:hover {
+                background: var(--secondary-color);
+                transform: translateY(-3px);
+            }
+
+            .section-title {
+                text-align: center;
+                margin-bottom: 3rem;
+                position: relative;
+            }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+                color: var(--primary-color);
+            }
+
+            .section-title::after {
+                content: "";
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 4px;
+                background: var(--accent-color);
+            }
+
+            /* Header Styles */
+            header {
+                background-color: var(--white-color);
+                box-shadow: var(--box-shadow);
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+                transition: var(--transition);
+            }
+
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1.2rem 0;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+                font-weight: 700;
+                color: var(--primary-color);
+            }
+
+            .nav-links {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin-left: 2rem;
+            }
+
+            .nav-links a {
+                color: var(--dark-color);
+                font-weight: 600;
+                transition: var(--transition);
+            }
+
+            .nav-links a:hover {
+                color: var(--primary-color);
+            }
+
+            .hamburger {
+                display: none;
+                cursor: pointer;
+                font-size: 1.5rem;
+                color: var(--dark-color);
+            }
+
+            /* Hero Section */
+            #hero {
+                height: 100vh;
+                background:
+                    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                    url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80");
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                display: flex;
+                align-items: center;
+                color: var(--white-color);
+            }
+
+            .hero-content {
+                max-width: 800px;
+            }
+
+            .hero-content h1 {
+                font-size: 3.5rem;
+                margin-bottom: 1rem;
+                animation: fadeInUp 1s ease-out;
+            }
+
+            .hero-content h2 {
+                font-size: 2.5rem;
+                margin-bottom: 2rem;
+                color: var(--accent-color);
+                animation: fadeInUp 1s ease-out 0.2s both;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+                animation: fadeInUp 1s ease-out 0.4s both;
+            }
+
+            .hero-content .btn {
+                animation: fadeInUp 1s ease-out 0.6s both;
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* About Section */
+            #about {
+                padding: 6rem 0;
+                background-color: var(--white-color);
+            }
+
+            .about-container {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                gap: 3rem;
+                align-items: center;
+            }
+
+            .about-img {
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: var(--box-shadow);
+            }
+
+            .about-img img {
+                width: 100%;
+                height: auto;
+                transition: var(--transition);
+            }
+
+            .about-img img:hover {
+                transform: scale(1.05);
+            }
+
+            .about-content h3 {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+                color: var(--primary-color);
+            }
+
+            .about-content p {
+                margin-bottom: 1.5rem;
+                text-align: justify;
+            }
+
+            /* Skills Section */
+            #skills {
+                padding: 6rem 0;
+                background-color: #f9f9f9;
+            }
+
+            .skills-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+
+            .skill-category {
+                background-color: var(--white-color);
+                border-radius: 10px;
+                padding: 2rem;
+                box-shadow: var(--box-shadow);
+                transition: var(--transition);
+            }
+
+            .skill-category:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            }
+
+            .skill-category h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+                color: var(--primary-color);
+                position: relative;
+                padding-bottom: 0.8rem;
+            }
+
+            .skill-category h3::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 50px;
+                height: 3px;
+                background: var(--accent-color);
+            }
+
+            .skill-item {
+                margin-bottom: 1rem;
+                display: flex;
+                align-items: center;
+            }
+
+            .skill-icon {
+                margin-right: 0.8rem;
+                color: var(--primary-color);
+                font-size: 1.2rem;
+            }
+
+            /* Projects Section */
+            #projects {
+                padding: 6rem 0;
+                background-color: var(--white-color);
+            }
+
+            .projects-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 2rem;
+            }
+
+            .project-card {
+                background-color: var(--white-color);
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: var(--box-shadow);
+                transition: var(--transition);
+            }
+
+            .project-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            }
+
+            .project-img {
+                height: 200px;
+                overflow: hidden;
+            }
+
+            .project-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: var(--transition);
+            }
+
+            .project-card:hover .project-img img {
+                transform: scale(1.1);
+            }
+
+            .project-content {
+                padding: 1.5rem;
+            }
+
+            .project-content h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                color: var(--primary-color);
+            }
+
+            .project-content p {
+                margin-bottom: 1.5rem;
+                color: #666;
+            }
+
+            .project-tags {
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 1.5rem;
+            }
+
+            .project-tag {
+                padding: 0.4rem 0.8rem;
+                background-color: rgba(0, 120, 215, 0.1);
+                color: var(--primary-color);
+                border-radius: 50px;
+                font-size: 0.8rem;
+                margin-right: 0.5rem;
+                margin-bottom: 0.5rem;
+                font-weight: 600;
+            }
+
+            /* Experience Section */
+            #experience {
+                padding: 6rem 0;
+                background-color: #f9f9f9;
+            }
+
+            .timeline {
+                position: relative;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .timeline::after {
+                content: "";
+                position: absolute;
+                width: 4px;
+                background-color: var(--primary-color);
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                margin-left: -2px;
+            }
+
+            .timeline-item {
+                position: relative;
+                width: 50%;
+                padding: 0 40px 50px;
+            }
+
+            .timeline-item:nth-child(odd) {
+                left: 0;
+                text-align: right;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 50%;
+            }
+
+            .timeline-content {
+                position: relative;
+                background-color: var(--white-color);
+                padding: 2rem;
+                border-radius: 10px;
+                box-shadow: var(--box-shadow);
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::after {
+                content: "";
+                position: absolute;
+                top: 20px;
+                right: -15px;
+                width: 30px;
+                height: 30px;
+                background-color: var(--white-color);
+                transform: rotate(45deg);
+                box-shadow: 2px -2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .timeline-item:nth-child(even) .timeline-content::after {
+                content: "";
+                position: absolute;
+                top: 20px;
+                left: -15px;
+                width: 30px;
+                height: 30px;
+                background-color: var(--white-color);
+                transform: rotate(45deg);
+                box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .timeline-dot {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color: var(--primary-color);
+                border-radius: 50%;
+                top: 20px;
+                z-index: 10;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot {
+                right: -60px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: -60px;
+            }
+
+            .timeline-date {
+                position: absolute;
+                top: 0;
+                padding: 0.5rem 1rem;
+                background-color: var(--accent-color);
+                color: var(--white-color);
+                border-radius: 20px;
+                font-weight: 600;
+                font-size: 0.9rem;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-date {
+                right: -40px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-date {
+                left: -40px;
+            }
+
+            .timeline-content h3 {
+                color: var(--primary-color);
+                margin-bottom: 0.5rem;
+            }
+
+            .timeline-content h4 {
+                color: var(--secondary-color);
+                margin-bottom: 1rem;
+                font-weight: 600;
+            }
+
+            .timeline-content ul {
+                margin-left: 1rem;
+            }
+
+            .timeline-content ul li {
+                margin-bottom: 0.5rem;
+                position: relative;
+            }
+
+            .timeline-content ul li::before {
+                content: "▸";
+                color: var(--primary-color);
+                position: absolute;
+                left: -1rem;
+            }
+
+            /* Contact Section */
+            #contact {
+                padding: 6rem 0;
+                background: linear-gradient(
+                    135deg,
+                    var(--primary-color),
+                    var(--secondary-color)
+                );
+                color: var(--white-color);
+            }
+
+            .contact-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+
+            .contact-info h3 {
+                margin-bottom: 1.5rem;
+                font-size: 2rem;
+            }
+
+            .contact-info p {
+                margin-bottom: 2rem;
+                opacity: 0.9;
+            }
+
+            .contact-item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1.5rem;
+            }
+
+            .contact-icon {
+                font-size: 1.5rem;
+                margin-right: 1rem;
+                width: 40px;
+            }
+
+            .contact-form {
+                background-color: rgba(255, 255, 255, 0.1);
+                padding: 2rem;
+                border-radius: 10px;
+                backdrop-filter: blur(10px);
+            }
+
+            .contact-form h3 {
+                margin-bottom: 1.5rem;
+                font-size: 1.8rem;
+            }
+
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+
+            .form-control {
+                width: 100%;
+                padding: 0.8rem;
+                border: none;
+                border-radius: 5px;
+                background-color: rgba(255, 255, 255, 0.9);
+                color: var(--dark-color);
+                transition: var(--transition);
+            }
+
+            .form-control::placeholder {
+                color: #999;
+            }
+
+            .form-control:focus {
+                outline: none;
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+
+            textarea.form-control {
+                height: 120px;
+                resize: vertical;
+            }
+
+            .submit-btn {
+                width: 100%;
+                padding: 1rem;
+                background-color: var(--white-color);
+                color: var(--primary-color);
+                border: none;
+                border-radius: 5px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: var(--transition);
+            }
+
+            .submit-btn:hover {
+                background-color: var(--accent-color);
+                color: var(--white-color);
+            }
+
+            /* Footer */
+            footer {
+                background-color: var(--dark-color);
+                color: var(--white-color);
+                padding: 3rem 0 1rem;
+                text-align: center;
+            }
+
+            .footer-social {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 2rem;
+            }
+
+            .social-link {
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                background-color: var(--primary-color);
+                color: var(--white-color);
+                border-radius: 50%;
+                margin: 0 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 600;
+                transition: var(--transition);
+            }
+
+            .social-link:hover {
+                background-color: var(--accent-color);
+                transform: translateY(-3px);
+            }
+
+            .footer-links {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 2rem;
+            }
+
+            .footer-links li {
+                margin: 0 1rem;
+            }
+
+            .footer-links a {
+                color: var(--white-color);
+                transition: var(--transition);
+            }
+
+            .footer-links a:hover {
+                color: var(--accent-color);
+            }
+
+            .footer-text {
+                opacity: 0.7;
+                font-size: 0.9rem;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 992px) {
+                .about-container {
+                    grid-template-columns: 1fr;
+                    text-align: center;
+                }
+
+                .about-img {
+                    max-width: 400px;
+                    margin: 0 auto;
+                }
+
+                .about-content h3::after {
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+
+                .timeline::after {
+                    left: 30px;
+                }
+
+                .timeline-item {
+                    width: 100%;
+                    padding-left: 70px;
+                    padding-right: 0;
+                }
+
+                .timeline-item:nth-child(even) {
+                    left: 0;
+                }
+
+                .timeline-content::after {
+                    display: none;
+                }
+
+                .timeline-dot {
+                    left: 20px;
+                }
+
+                .timeline-date {
+                    left: 70px;
+                    top: -40px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .hero-content h1 {
+                    font-size: 2.5rem;
+                }
+
+                .hero-content h2 {
+                    font-size: 2rem;
+                }
+
+                .projects-container {
+                    grid-template-columns: 1fr;
+                }
+
+                .contact-container {
+                    grid-template-columns: 1fr;
+                }
+
+                .nav-links {
+                    position: fixed;
+                    top: 70px;
+                    left: -100%;
+                    width: 100%;
+                    height: calc(100vh - 70px);
+                    background-color: var(--white-color);
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    transition: var(--transition);
+                    box-shadow: var(--box-shadow);
+                }
+
+                .nav-links.active {
+                    left: 0;
+                }
+
+                .nav-links li {
+                    margin: 1rem 0;
+                }
+
+                .hamburger {
+                    display: block;
+                }
+
+                .footer-links {
+                    flex-direction: column;
+                }
+
+                .footer-links li {
+                    margin: 0.5rem 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <nav>
+                    <div class="logo">John Smith</div>
+                    <ul class="nav-links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <div class="hamburger">
+                        <span>&#9776;</span>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>John Smith</h1>
+                    <h2>Senior Cloud Native Engineer</h2>
+                    <p>
+                        Architecting scalable, resilient and secure cloud-native
+                        solutions with 8+ years of experience in AWS,
+                        Kubernetes, and microservices architecture.
+                    </p>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Me</h2>
+                </div>
+                <div class="about-container">
+                    <div class="about-img">
+                        <img
+                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
+                            alt="Profile Image"
+                        />
+                    </div>
+                    <div class="about-content">
+                        <h3>Cloud Native Specialist</h3>
+                        <p>
+                            I'm a Senior Cloud Native Engineer with expertise in
+                            designing, implementing, and managing cloud
+                            infrastructure and applications. With over 8 years
+                            of experience, I specialize in building scalable,
+                            resilient, and secure systems using modern
+                            cloud-native technologies.
+                        </p>
+                        <p>
+                            My approach focuses on implementing DevOps
+                            practices, Infrastructure as Code, and continuous
+                            delivery pipelines to streamline software
+                            development and operations. I have a proven track
+                            record of successfully leading complex cloud
+                            migration projects and establishing best practices
+                            for cloud governance and security.
+                        </p>
+                        <p>
+                            I'm passionate about keeping up with the latest
+                            advancements in cloud technology and sharing
+                            knowledge with the community through mentoring,
+                            technical writing, and speaking at industry events.
+                        </p>
+                        <a href="#" class="btn">Download Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <div class="section-title">
+                    <h2>My Skills</h2>
+                </div>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Cloud Platforms</h3>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>AWS (Certified Solutions Architect)</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Google Cloud Platform (GCP)</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Microsoft Azure</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Multi-cloud Architecture</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Container Orchestration</h3>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Kubernetes (CKA, CKAD certified)</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Docker & Containerization</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Helm Charts</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Service Mesh (Istio, Linkerd)</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Infrastructure as Code</h3>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Terraform</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>AWS CloudFormation</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Ansible</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Pulumi</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>CI/CD & DevOps</h3>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Jenkins</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>GitHub Actions</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>GitLab CI/CD</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>ArgoCD</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Monitoring & Observability</h3>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Prometheus & Grafana</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>ELK Stack</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Datadog</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>New Relic</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Programming & Scripting</h3>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Go</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>Bash/Shell Scripting</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <span>JavaScript/TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Featured Projects</h2>
+                </div>
+                <div class="projects-container">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img
+                                src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80"
+                                alt="Enterprise Kubernetes Platform"
+                            />
+                        </div>
+                        <div class="project-content">
+                            <h3>Enterprise Kubernetes Platform</h3>
+                            <p>
+                                Designed and implemented a multi-cluster
+                                Kubernetes platform supporting 200+
+                                microservices across 3 geographical regions,
+                                serving 5M+ daily users.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Kubernetes</span>
+                                <span class="project-tag">AWS EKS</span>
+                                <span class="project-tag">Istio</span>
+                                <span class="project-tag">ArgoCD</span>
+                                <span class="project-tag">Terraform</span>
+                            </div>
+                            <a href="#" class="btn">View Details</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img
+                                src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                alt="Cloud Migration Strategy"
+                            />
+                        </div>
+                        <div class="project-content">
+                            <h3>Large-Scale Cloud Migration</h3>
+                            <p>
+                                Led a team of 12 engineers to migrate a legacy
+                                monolithic application to a cloud-native
+                                microservices architecture, reducing costs by
+                                45% and improving deployment frequency by 10x.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">AWS</span>
+                                <span class="project-tag">Microservices</span>
+                                <span class="project-tag">Docker</span>
+                                <span class="project-tag">CI/CD</span>
+                                <span class="project-tag">CloudFormation</span>
+                            </div>
+                            <a href="#" class="btn">View Details</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img
+                                src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                alt="Automated Security Pipeline"
+                            />
+                        </div>
+                        <div class="project-content">
+                            <h3>Automated Security Pipeline</h3>
+                            <p>
+                                Created a comprehensive security automation
+                                framework for continuous vulnerability scanning,
+                                policy enforcement, and compliance verification,
+                                reducing security incidents by 75%.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">DevSecOps</span>
+                                <span class="project-tag"
+                                    >AWS Security Hub</span
+                                >
+                                <span class="project-tag">OPA/Gatekeeper</span>
+                                <span class="project-tag">Trivy</span>
+                                <span class="project-tag">Python</span>
+                            </div>
+                            <a href="#" class="btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Work Experience</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2021 - Present</div>
+                        <div class="timeline-content">
+                            <h3>Senior Cloud Native Engineer</h3>
+                            <h4>TechInnovate Inc.</h4>
+                            <ul>
+                                <li>
+                                    Lead a team of 8 engineers in designing and
+                                    implementing cloud-native infrastructure and
+                                    applications using Kubernetes, Istio, and
+                                    AWS services.
+                                </li>
+                                <li>
+                                    Architected and deployed a multi-region
+                                    Kubernetes platform supporting 200+
+                                    microservices with 99.99% uptime.
+                                </li>
+                                <li>
+                                    Implemented GitOps workflows with ArgoCD and
+                                    Flux, reducing deployment time by 70% and
+                                    increasing release frequency by 3x.
+                                </li>
+                                <li>
+                                    Established cloud cost optimization
+                                    strategies, resulting in 30% reduction in
+                                    monthly cloud spend while scaling
+                                    infrastructure.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2018 - 2021</div>
+                        <div class="timeline-content">
+                            <h3>DevOps Engineer</h3>
+                            <h4>CloudSystems Global</h4>
+                            <ul>
+                                <li>
+                                    Led the migration of legacy applications to
+                                    containerized microservices architecture on
+                                    AWS EKS.
+                                </li>
+                                <li>
+                                    Developed and maintained infrastructure as
+                                    code using Terraform and CloudFormation.
+                                </li>
+                                <li>
+                                    Implemented CI/CD pipelines with Jenkins,
+                                    reducing release cycles from weeks to days.
+                                </li>
+                                <li>
+                                    Designed and deployed monitoring solutions
+                                    using Prometheus, Grafana, and ELK stack,
+                                    improving system observability and incident
+                                    response time.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2016 - 2018</div>
+                        <div class="timeline-content">
+                            <h3>Cloud Infrastructure Engineer</h3>
+                            <h4>Digital Solutions Ltd.</h4>
+                            <ul>
+                                <li>
+                                    Managed AWS infrastructure including EC2,
+                                    S3, RDS, and VPC for production and
+                                    development environments.
+                                </li>
+                                <li>
+                                    Implemented Docker containerization
+                                    strategy, improving resource utilization by
+                                    40%.
+                                </li>
+                                <li>
+                                    Automated server provisioning and
+                                    configuration using Ansible, reducing setup
+                                    time by 80%.
+                                </li>
+                                <li>
+                                    Designed and implemented backup and disaster
+                                    recovery solutions, ensuring 99.9% data
+                                    durability.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Get In Touch</h2>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Let's Connect</h3>
+                        <p>
+                            Feel free to reach out if you're looking for a cloud
+                            native specialist for your project, have questions
+                            about cloud architecture, or just want to connect.
+                        </p>
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <span>john.smith@example.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📱</span>
+                            <span>+1 (123) 456-7890</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>San Francisco, CA</span>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Me a Message</h3>
+                        <form>
+                            <div class="form-group">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Your Name"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    placeholder="Your Email"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Subject"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <textarea
+                                    class="form-control"
+                                    placeholder="Your Message"
+                                    required
+                                ></textarea>
+                            </div>
+                            <button type="submit" class="btn submit-btn">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-social">
+                    <a href="#" class="social-link">LI</a>
+                    <a href="#" class="social-link">GH</a>
+                    <a href="#" class="social-link">TW</a>
+                    <a href="#" class="social-link">MD</a>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <p class="footer-text">
+                    &copy; 2025 John Smith. All Rights Reserved.
+                </p>
+            </div>
+        </footer>
+
+        <!-- JavaScript -->
+        <script>
+            // Mobile Navigation Toggle
+            document
+                .querySelector(".hamburger")
+                .addEventListener("click", function () {
+                    document
+                        .querySelector(".nav-links")
+                        .classList.toggle("active");
+                });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(
+                        this.getAttribute("href"),
+                    );
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                        });
+                        // Close mobile menu if open
+                        document
+                            .querySelector(".nav-links")
+                            .classList.remove("active");
+                    }
+                });
+            });
+
+            // Header background change on scroll
+            window.addEventListener("scroll", function () {
+                const header = document.querySelector("header");
+                if (window.scrollY > 100) {
+                    header.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
+                    header.style.backdropFilter = "blur(10px)";
+                } else {
+                    header.style.backgroundColor = "var(--white-color)";
+                    header.style.backdropFilter = "none";
+                }
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px",
+            };
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            document
+                .querySelectorAll(
+                    ".skill-category, .project-card, .timeline-item",
+                )
+                .forEach((el) => {
+                    el.style.opacity = "0";
+                    el.style.transform = "translateY(30px)";
+                    el.style.transition =
+                        "opacity 0.6s ease, transform 0.6s ease";
+                    observer.observe(el);
+                });
+
+            // Form submission handler
+            document
+                .querySelector(".contact-form form")
+                .addEventListener("submit", function (e) {
+                    e.preventDefault();
+
+                    // Simple form validation
+                    const formData = new FormData(this);
+                    const name = this.querySelector(
+                        'input[placeholder="Your Name"]',
+                    ).value;
+                    const email = this.querySelector(
+                        'input[placeholder="Your Email"]',
+                    ).value;
+                    const subject = this.querySelector(
+                        'input[placeholder="Subject"]',
+                    ).value;
+                    const message = this.querySelector("textarea").value;
+
+                    if (!name || !email || !subject || !message) {
+                        alert("Please fill in all fields.");
+                        return;
+                    }
+
+                    // Simulate form submission
+                    alert(
+                        "Thank you for your message! I will get back to you soon.",
+                    );
+                    this.reset();
+                });
+
+            // Typing effect for hero section
+            function typeWriter(element, text, speed = 100) {
+                let i = 0;
+                element.innerHTML = "";
+
+                function type() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(type, speed);
+                    }
+                }
+
+                type();
+            }
+
+            // Initialize typing effect when page loads
+            window.addEventListener("load", function () {
+                const heroTitle = document.querySelector(".hero-content h1");
+                const heroSubtitle = document.querySelector(".hero-content h2");
+
+                setTimeout(() => {
+                    typeWriter(heroTitle, "John Smith", 150);
+                }, 1000);
+
+                setTimeout(() => {
+                    typeWriter(
+                        heroSubtitle,
+                        "Senior Cloud Native Engineer",
+                        100,
+                    );
+                }, 2500);
+            });
+
+            // Particle effect for hero section (optional)
+            function createParticles() {
+                const hero = document.querySelector("#hero");
+                const particlesContainer = document.createElement("div");
+                particlesContainer.style.position = "absolute";
+                particlesContainer.style.top = "0";
+                particlesContainer.style.left = "0";
+                particlesContainer.style.width = "100%";
+                particlesContainer.style.height = "100%";
+                particlesContainer.style.pointerEvents = "none";
+                particlesContainer.style.zIndex = "1";
+
+                for (let i = 0; i < 50; i++) {
+                    const particle = document.createElement("div");
+                    particle.style.position = "absolute";
+                    particle.style.width = "2px";
+                    particle.style.height = "2px";
+                    particle.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+                    particle.style.borderRadius = "50%";
+                    particle.style.left = Math.random() * 100 + "%";
+                    particle.style.top = Math.random() * 100 + "%";
+                    particle.style.animation = `float ${Math.random() * 3 + 2}s linear infinite`;
+                    particlesContainer.appendChild(particle);
+                }
+
+                hero.appendChild(particlesContainer);
+            }
+
+            // Add CSS for particle animation
+            const style = document.createElement("style");
+            style.textContent = `
+            @keyframes float {
+                0%, 100% { transform: translateY(0px) rotate(0deg); }
+                50% { transform: translateY(-20px) rotate(180deg); }
+            }
+        `;
+            document.head.appendChild(style);
+
+            // Initialize particles
+            createParticles();
+        </script>
+    </body>
+</html>

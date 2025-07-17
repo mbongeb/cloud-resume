@@ -1,0 +1,70 @@
+{
+  "name": "cloudnative-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio website for Cloud Native Engineers",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "build": "mkdir -p dist && cp -r index.html assets dist/ 2>/dev/null || cp index.html dist/",
+    "preview": "cd dist && python3 -m http.server 8080",
+    "deploy": "npm run build && echo 'Ready for deployment!'",
+    "clean": "rm -rf dist .tmp",
+    "validate": "html-validate index.html",
+    "format": "prettier --write '**/*.{html,css,js,json,md}'",
+    "lint": "eslint --ext .js .",
+    "optimize": "imagemin assets/images/* --out-dir=dist/assets/images",
+    "setup": "make setup",
+    "customize": "make training-setup",
+    "astro:init": "npm create astro@latest astro-version -- --template minimal --typescript",
+    "astro:dev": "cd astro-version && npm run dev",
+    "astro:build": "cd astro-version && npm run build",
+    "vue:init": "npm create vue@latest vue-version",
+    "vue:dev": "cd vue-version && npm run dev",
+    "vue:build": "cd vue-version && npm run build"
+  },
+  "keywords": [
+    "portfolio",
+    "cloud-native",
+    "engineer",
+    "aws",
+    "kubernetes",
+    "devops",
+    "cloudflare-pages"
+  ],
+  "author": "Cloud Native Engineer",
+  "license": "Cloud Native License",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/cloudnative-portfolio.git"
+  },
+  "homepage": "https://cloudnative-portfolio.pages.dev",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20231218.0",
+    "eslint": "^8.56.0",
+    "html-validate": "^8.7.4",
+    "imagemin": "^8.0.1",
+    "imagemin-webp": "^8.0.0",
+    "prettier": "^3.1.1",
+    "wrangler": "^3.22.1"
+  },
+  "optionalDependencies": {
+    "astro": "^4.0.0",
+    "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/vue": "^4.0.0",
+    "vue": "^3.3.0",
+    "tailwindcss": "^3.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "config": {
+    "port": 8000,
+    "build_dir": "dist",
+    "assets_dir": "assets"
+  }
+}
