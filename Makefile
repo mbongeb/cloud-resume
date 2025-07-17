@@ -7,7 +7,7 @@ TITLE ?= Senior Cloud Native Engineer
 EMAIL ?= john.smith@cloudresume.com
 PHONE ?= +27 (021) 456-7890
 LOCATION ?= Cape Town, ZA
-GITHUB_USERNAME ?= mbongeb
+GITHUB_USERNAME ?= mbongeb94
 PROFILE_IMAGE ?= assets/profile.jpg
 
 # Directories
