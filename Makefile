@@ -2,12 +2,12 @@
 # This Makefile helps customize and deploy your portfolio website
 
 # Default values
-NAME ?= John Smith
+NAME ?= Mbongeni Buthelezi
 TITLE ?= Senior Cloud Native Engineer
-EMAIL ?= john.smith@example.com
-PHONE ?= +1 (123) 456-7890
-LOCATION ?= San Francisco, CA
-GITHUB_USERNAME ?= johnsmith
+EMAIL ?= john.smith@cloudresume.com
+PHONE ?= +27 (021) 456-7890
+LOCATION ?= Cape Town, ZA
+GITHUB_USERNAME ?= mbongeb
 PROFILE_IMAGE ?= assets/profile.jpg
 
 # Directories
